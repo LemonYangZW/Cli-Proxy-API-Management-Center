@@ -6,18 +6,22 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 $spacing-xl 0;
 }
 
 .grid {
   display: grid;
   gap: $spacing-lg;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 
   @include mobile {
     grid-template-columns: 1fr;
+    gap: $spacing-md;
   }
 }
 
@@ -114,6 +118,8 @@
 
   :global(.form-group) {
     margin-bottom: 0;
+    flex: 1;
+    min-width: 140px;
   }
 
   @include mobile {
@@ -160,5 +166,27 @@
 .retryButton {
   @include mobile {
     width: 100%;
+  }
+}
+
+// Settings cards get a subtle left border accent
+:global(.card) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: $spacing-md;
+    bottom: $spacing-md;
+    width: 3px;
+    background: var(--gradient-primary);
+    border-radius: 0 $radius-sm $radius-sm 0;
+    opacity: 0;
+    transition: opacity $transition-fast;
+  }
+
+  &:hover::before {
+    opacity: 1;
   }
 }

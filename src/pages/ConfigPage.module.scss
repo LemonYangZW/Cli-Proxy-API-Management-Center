@@ -10,8 +10,11 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 $spacing-md 0;
 }
 
@@ -75,7 +78,10 @@
   background: var(--primary-color);
   border: 1px solid var(--primary-color);
   color: #fff;
-  transition: background-color $transition-fast, border-color $transition-fast, opacity $transition-fast;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    opacity $transition-fast;
 
   &:hover:not(:disabled) {
     background: var(--primary-hover);

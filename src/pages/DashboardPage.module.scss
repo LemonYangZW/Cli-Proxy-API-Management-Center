@@ -1,5 +1,6 @@
 @use 'sass:color';
 @use '../styles/variables.scss' as *;
+@use '../styles/mixins.scss' as *;
 
 .dashboard {
   display: flex;
@@ -14,9 +15,12 @@
 }
 
 .title {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
-  color: var(--text-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0;
   line-height: 1.4;
 }
@@ -32,11 +36,27 @@
   align-items: center;
   justify-content: space-between;
   gap: $spacing-md;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  border: 1px solid var(--glass-border);
   border-radius: $radius-lg;
   padding: $spacing-md $spacing-lg;
   flex-wrap: wrap;
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    opacity: 0.8;
+  }
 }
 
 .connectionStatus {
@@ -50,28 +70,52 @@
   height: 10px;
   border-radius: 50%;
   background: $gray-400;
+  position: relative;
 
   &.connected {
     background: $success-color;
-    box-shadow: 0 0 8px rgba($success-color, 0.5);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.3);
+      animation: pulse-ring 2s ease-out infinite;
+    }
   }
 
   &.connecting {
     background: $warning-color;
     animation: pulse 1s ease-in-out infinite;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
   }
 
   &.disconnected {
     background: $error-color;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
   }
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0.5;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }
 
@@ -100,10 +144,11 @@
 .serverVersion {
   font-size: 13px;
   font-weight: 600;
-  color: var(--primary-color);
-  background: rgba($primary-color, 0.1);
-  padding: 4px 10px;
+  color: white;
+  background: var(--gradient-primary);
+  padding: 4px 12px;
   border-radius: $radius-full;
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
 }
 
 .buildDate {
@@ -130,16 +175,43 @@
   align-items: center;
   gap: $spacing-md;
   padding: $spacing-lg;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  border: 1px solid var(--glass-border);
   border-radius: $radius-lg;
   text-decoration: none;
   transition: all $transition-fast;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity $transition-fast;
+  }
 
   &:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+    box-shadow: var(--glow-primary), var(--glass-shadow);
+    transform: translateY(-4px);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .statIcon {
+      transform: scale(1.1);
+      background: var(--gradient-primary);
+      color: white;
+      box-shadow: var(--glow-primary);
+    }
   }
 }
 
@@ -147,11 +219,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: $radius-md;
-  background: var(--bg-secondary);
+  background: var(--glass-bg-solid);
   color: var(--primary-color);
+  transition: all $transition-fast;
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
 }
 
 .statContent {
@@ -161,9 +236,13 @@
 }
 
 .statValue {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
-  color: var(--text-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
 }
 
 .statLabel {
@@ -185,10 +264,21 @@
 }
 
 .sectionTitle {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: var(--gradient-primary);
+    border-radius: $radius-full;
+  }
 }
 
 .actionsGrid {
@@ -230,9 +320,17 @@
   justify-content: space-between;
   gap: $spacing-sm;
   padding: $spacing-sm $spacing-md;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
   border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: var(--glass-bg-solid);
+    border-color: var(--border-hover);
+  }
 }
 
 .configLabel {
@@ -243,14 +341,13 @@
 .configValue {
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-primary);
 
   &.enabled {
-    color: $success-color;
+    color: var(--success-color);
   }
 
   &.disabled {
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
   }
 }
 
@@ -309,12 +406,18 @@
 .viewMoreLink {
   display: inline-flex;
   align-items: center;
-  font-size: 13px;
-  color: var(--primary-color);
+  gap: $spacing-xs;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
-  margin-top: $spacing-xs;
+  margin-top: $spacing-sm;
+  transition: all $transition-fast;
 
   &:hover {
-    text-decoration: underline;
+    gap: $spacing-sm;
   }
 }

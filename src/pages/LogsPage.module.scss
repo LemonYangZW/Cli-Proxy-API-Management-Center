@@ -15,9 +15,12 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0 0 $spacing-lg 0;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 $spacing-xl 0;
 }
 
 .tabBar {
@@ -359,8 +362,9 @@
 }
 
 .requestIdBadge {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
   font-size: 11px;
   color: #0891b2;
   background: rgba(8, 145, 178, 0.1);

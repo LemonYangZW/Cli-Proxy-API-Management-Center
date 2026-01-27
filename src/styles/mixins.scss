@@ -56,8 +56,115 @@
   color: inherit;
   outline: none;
 
+  @include focus-glow;
+}
+
+// Glassmorphism effect
+@mixin glass($opacity: 0.7) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  border: $glass-border-light;
+
+  [data-theme='dark'] & {
+    background: rgba(32, 32, 32, $opacity + 0.1);
+    border: $glass-border-dark;
+  }
+}
+
+// Glass card effect
+@mixin glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturation);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: $radius-lg;
+}
+
+// Glass solid (more opaque, for important elements)
+@mixin glass-solid {
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur($glass-blur-heavy) saturate($glass-saturation);
+  -webkit-backdrop-filter: blur($glass-blur-heavy) saturate($glass-saturation);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+// Hover lift effect
+@mixin hover-lift($distance: -4px) {
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY($distance);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Hover glow effect
+@mixin hover-glow($color: var(--glow-primary)) {
+  transition: box-shadow $transition-fast;
+
+  &:hover {
+    box-shadow: $color;
+  }
+}
+
+// Gradient text
+@mixin gradient-text($gradient: var(--gradient-primary)) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Shimmer animation for loading states
+@mixin shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 0%,
+    var(--bg-tertiary) 50%,
+    var(--bg-secondary) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Pulse glow animation
+@mixin pulse-glow($color: var(--primary-color)) {
+  animation: pulse-glow 2s ease-in-out infinite;
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 5px rgba($color, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba($color, 0.4);
+    }
+  }
+}
+
+// Focus ring with glow
+@mixin focus-glow {
   &:focus {
-    outline: 2px solid $primary-color;
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.4);
   }
 }

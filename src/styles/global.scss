@@ -12,7 +12,9 @@
 body {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
-  transition: background-color $transition-normal, color $transition-normal;
+  transition:
+    background-color $transition-normal,
+    color $transition-normal;
 }
 
 html.modal-open,
@@ -37,9 +39,10 @@ body.modal-open .content {
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
   border-radius: $radius-full;
+  transition: background $transition-fast;
 
   &:hover {
-    background: var(--border-hover);
+    background: var(--primary-color);
   }
 }
 
@@ -57,6 +60,50 @@ body.modal-open .content {
 
 .text-ellipsis {
   @include text-ellipsis;
+}
+
+// Glass utility classes
+.glass {
+  @include glass-card;
+}
+
+.glass-solid {
+  @include glass-solid;
+}
+
+// Gradient text utility
+.gradient-text {
+  @include gradient-text;
+}
+
+// Loading spinner with gradient
+.loading-spinner {
+  border: 3px solid var(--glass-border);
+  border-top-color: transparent;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spinner-rotate 0.8s linear infinite;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-color);
+    animation: spinner-rotate 0.8s linear infinite reverse;
+  }
+}
+
+@keyframes spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 // 通用过渡

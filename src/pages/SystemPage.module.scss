@@ -4,8 +4,11 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 $spacing-xl 0;
 }
 
@@ -23,9 +26,20 @@
 
 .sectionTitle {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 $spacing-md 0;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: var(--gradient-primary);
+    border-radius: $radius-full;
+  }
 }
 
 .sectionDescription {
@@ -98,7 +112,9 @@
   border-radius: $radius-full;
   border: 1px solid var(--border-color);
   background-color: var(--bg-secondary);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
 }
 
 .modelName {

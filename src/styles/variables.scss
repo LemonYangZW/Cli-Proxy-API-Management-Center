@@ -2,12 +2,47 @@
  * SCSS 变量定义
  */
 
-// 颜色
-$primary-color: #3b82f6;
+// Cyan/Teal Color Palette (replace blue)
+$primary-color: #06b6d4; // cyan-500
+$primary-light: #22d3ee; // cyan-400
+$primary-dark: #0891b2; // cyan-600
+$primary-darker: #0e7490; // cyan-700
+$info-color: #06b6d4; // cyan-500
+
+// Cyan scale
+$cyan-50: #ecfeff;
+$cyan-100: #cffafe;
+$cyan-200: #a5f3fc;
+$cyan-300: #67e8f9;
+$cyan-400: #22d3ee;
+$cyan-500: #06b6d4;
+$cyan-600: #0891b2;
+$cyan-700: #0e7490;
+$cyan-800: #155e75;
+$cyan-900: #164e63;
+
 $success-color: #10b981;
 $warning-color: #f59e0b;
 $error-color: #ef4444;
-$info-color: #3b82f6;
+
+// Glassmorphism settings
+$glass-blur: 12px;
+$glass-blur-heavy: 20px;
+$glass-saturation: 180%;
+
+// Enhanced shadows for depth
+$shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.12);
+$shadow-glass-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+$shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.3);
+
+// Glassmorphism border
+$glass-border-light: 1px solid rgba(255, 255, 255, 0.18);
+$glass-border-dark: 1px solid rgba(255, 255, 255, 0.08);
+
+// Animation durations
+$animation-fast: 200ms;
+$animation-normal: 300ms;
+$animation-slow: 500ms;
 
 // 灰阶
 $gray-50: #f9fafb;
@@ -56,7 +91,8 @@ $z-modal: 2000;
 $z-notification: 3000;
 
 // 字体
-$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+$font-family:
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
   'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
 $font-mono: 'Courier New', Courier, monospace;

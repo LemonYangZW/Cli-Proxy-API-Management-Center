@@ -6,8 +6,11 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 $spacing-xl 0;
 }
 
@@ -37,20 +40,30 @@
 .emptyState {
   text-align: center;
   padding: $spacing-2xl;
-  color: var(--text-secondary);
+  background: var(--glass-bg);
+  backdrop-filter: blur($glass-blur);
+  -webkit-backdrop-filter: blur($glass-blur);
+  border: 1px dashed var(--border-color);
+  border-radius: $radius-lg;
 
   i {
     font-size: 48px;
     margin-bottom: $spacing-md;
     opacity: 0.5;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   h3 {
     margin: 0 0 $spacing-sm 0;
     color: var(--text-primary);
+    font-weight: 700;
   }
 
   p {
     margin: 0;
+    color: var(--text-secondary);
   }
 }

@@ -18,8 +18,11 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 $spacing-xl 0;
 }
 
@@ -44,8 +47,19 @@
   h3 {
     margin: 0;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      background: var(--gradient-primary);
+      border-radius: $radius-full;
+    }
   }
 }
 
@@ -332,7 +346,9 @@
   border-radius: 8px;
   background: var(--bg-primary);
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 
   input[type='checkbox'] {
     margin-top: 2px;
@@ -419,7 +435,9 @@
   height: 8px;
   border-radius: 2px;
   min-width: 6px;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
 
   &:hover {
     transform: scaleY(1.5);
