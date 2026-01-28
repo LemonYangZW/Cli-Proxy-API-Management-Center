@@ -1,109 +1,68 @@
 /**
- * 主题样式
+ * 主题样式 - Zen-iOS Hybrid
  */
 
-// 浅色主题（默认）
+@import './variables.scss';
+
+// 浅色主题
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f3f4f6;
-  --bg-tertiary: #e5e7eb;
+  // 底色规范 (Base Layer): 杜绝纯白，采用 iOS 系统级灰
+  --bg-primary: #{$gray-100};    // #F2F2F7
+  --bg-secondary: #{$gray-50};   // #F9F9FB
+  --bg-tertiary: #ffffff;        // 只有核心组件表面使用白色
 
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-tertiary: #9ca3af;
+  // 对比策略: 文字与前景
+  --text-primary: #{$gray-900};
+  --text-secondary: #{$gray-600};
+  --text-tertiary: #{$gray-400};
 
-  --border-color: #e5e7eb;
-  --border-hover: #d1d5db;
+  // 物理边框
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-light: rgba(255, 255, 255, 0.6); // 用于内描边
+  --border-hover: rgba(0, 0, 0, 0.12);
 
-  // Updated primary colors to cyan
-  --primary-color: #06b6d4;
-  --primary-hover: #0891b2;
-  --primary-active: #0e7490;
-  --primary-light: #22d3ee;
+  // 核心交互 (深空黑)
+  --primary-color: #{$primary-color};
+  --primary-hover: #3a3a3c;
+  --primary-active: #000000;
 
-  --success-color: #10b981;
-  --warning-color: #f59e0b;
-  --error-color: #ef4444;
-  --info-color: #06b6d4;
+  --accent-color: #{$accent-color};
 
-  --success-badge-bg: #d1fae5;
-  --success-badge-text: #065f46;
-  --success-badge-border: #6ee7b7;
+  --success-color: #{$success-color};
+  --warning-color: #{$warning-color};
+  --error-color: #{$error-color};
 
-  --failure-badge-bg: #fee2e2;
-  --failure-badge-text: #991b1b;
-  --failure-badge-border: #fca5a5;
+  // 材质质感
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.4);
 
-  --count-badge-bg: rgba(6, 182, 212, 0.14);
-  --count-badge-text: var(--primary-active);
-
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-
-  // Glassmorphism backgrounds
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-bg-solid: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
-
-  // Gradient
-  --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-  --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
-
-  // Glow effects
-  --glow-primary: 0 0 20px rgba(6, 182, 212, 0.3);
-  --glow-success: 0 0 20px rgba(16, 185, 129, 0.3);
+  --shadow: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-float: #{$shadow-float};
 }
 
-// 深色主题（#191919）
+// 深色主题
 [data-theme='dark'] {
-  --bg-primary: #202020;
-  --bg-secondary: #191919;
-  --bg-tertiary: #262626;
+  --bg-primary: #000000;        // 极致黑
+  --bg-secondary: #1c1c1e;      // 深空灰容器
+  --bg-tertiary: #2c2c2e;
 
-  --text-primary: #fafafa;
-  --text-secondary: #a3a3a3;
-  --text-tertiary: #737373;
+  --text-primary: #ffffff;
+  --text-secondary: #8e8e93;
+  --text-tertiary: #48484a;
 
-  --border-color: #262626;
-  --border-hover: #404040;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(255, 255, 255, 0.2);
 
-  // Updated primary colors (brighter for dark mode)
-  --primary-color: #22d3ee;
-  --primary-hover: #06b6d4;
-  --primary-active: #67e8f9;
-  --primary-light: #a5f3fc;
+  --primary-color: #ffffff;
+  --primary-hover: #f2f2f7;
+  --primary-active: #d1d1d6;
 
-  --success-color: #10b981;
-  --warning-color: #f59e0b;
-  --error-color: #ef4444;
-  --info-color: #22d3ee;
+  --glass-bg: rgba(28, 28, 30, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
 
-  --success-badge-bg: rgba(6, 78, 59, 0.3);
-  --success-badge-text: #6ee7b7;
-  --success-badge-border: #059669;
-
-  --failure-badge-bg: rgba(153, 27, 27, 0.3);
-  --failure-badge-text: #fca5a5;
-  --failure-badge-border: #dc2626;
-
-  --count-badge-bg: rgba(34, 211, 238, 0.25);
-  --count-badge-text: var(--primary-active);
-
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3);
-
-  // Glassmorphism backgrounds (darker, more subtle)
-  --glass-bg: rgba(32, 32, 32, 0.8);
-  --glass-bg-solid: rgba(32, 32, 32, 0.92);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-
-  // Gradient
-  --gradient-primary: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
-  --gradient-accent: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
-
-  // Glow effects (stronger in dark mode)
-  --glow-primary: 0 0 25px rgba(34, 211, 238, 0.4);
-  --glow-success: 0 0 25px rgba(52, 211, 153, 0.4);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-float: 0 24px 48px rgba(0, 0, 0, 0.8);
 }

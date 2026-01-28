@@ -27,12 +27,9 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 $spacing-xl 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .errorBox {
@@ -111,7 +108,8 @@
   padding: 18px;
   background:
     radial-gradient(120% 140% at 12% 0%, var(--accent-soft) 0%, rgba(0, 0, 0, 0) 62%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)), var(--bg-primary);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
+    var(--bg-primary);
   border-radius: $radius-lg;
   border: 1px solid var(--border-color);
   display: flex;
@@ -119,10 +117,7 @@
   gap: 10px;
   min-height: 176px;
   box-shadow: var(--shadow-lg);
-  transition:
-    transform $transition-fast,
-    box-shadow $transition-fast,
-    border-color $transition-fast;
+  transition: transform $transition-tactile, box-shadow $transition-tactile, border-color $transition-tactile;
   overflow: hidden;
 
   &::before {
@@ -204,7 +199,7 @@
 .statHeader {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .statIcon {
@@ -228,7 +223,7 @@
 
 .statValueRow {
   display: flex;
-  gap: $spacing-lg;
+  gap: $p-lg;
 }
 
 .statValueSmall {
@@ -433,8 +428,7 @@
   border-collapse: collapse;
   font-size: 12px;
 
-  th,
-  td {
+  th, td {
     padding: 10px 12px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
@@ -513,12 +507,12 @@
     font-weight: 500;
   }
 
-  // 确保 Input 组件的 form-group 包装器不影响布局
+  // 确保 Input 组件�?form-group 包装器不影响布局
   :global(.form-group) {
     margin: 0;
 
     > label {
-      display: none; // 隐藏 Input 自带的 label，使用外层的
+      display: none; // 隐藏 Input 自带�?label，使用外层的
     }
   }
 
@@ -705,7 +699,7 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 
-  // Chart.js 默认会设置 canvas 的 touch-action: none，导致移动端无法横向滚动
+  // Chart.js 默认会设�?canvas �?touch-action: none，导致移动端无法横向滚动
   :global(canvas) {
     touch-action: pan-x pan-y !important;
   }

@@ -2,7 +2,7 @@
 @use './mixins.scss' as *;
 
 :root {
-  --header-height: 64px;
+  --header-height: 72px;
 }
 
 .app-shell {
@@ -11,243 +11,63 @@
   min-height: 100vh;
   height: 100vh;
   overflow: hidden;
-  background: var(--bg-secondary);
+  background-color: var(--bg-primary); // #F2F2F7
   color: var(--text-primary);
 
   @media (max-width: $breakpoint-mobile) {
     height: auto;
-    min-height: 100vh;
-    overflow: visible;
     overflow-y: auto;
   }
 }
 
+// 顶栏: 极致毛玻璃效果
 .main-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $spacing-md;
-  padding: $spacing-md $spacing-lg;
-  background: var(--glass-bg-solid);
-  backdrop-filter: blur($glass-blur-heavy) saturate($glass-saturation);
-  -webkit-backdrop-filter: blur($glass-blur-heavy) saturate($glass-saturation);
-  border-bottom: 1px solid var(--glass-border);
+  padding: 0 $p-xl;
+  height: var(--header-height);
+  @include frosted-glass(blur(40px), var(--glass-bg));
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: $z-dropdown;
   width: 100%;
-  box-shadow: var(--glass-shadow);
-
-  @media (max-width: $breakpoint-mobile) {
-    position: fixed;
-    left: 0;
-    right: 0;
-    padding: $spacing-sm $spacing-md;
-    gap: $spacing-sm;
-  }
 
   .left {
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
-    min-width: 0;
-    flex: 0 1 auto;
+    gap: $p-md;
 
     .brand-logo {
-      height: 32px;
-      width: 32px;
-      object-fit: contain;
-      flex-shrink: 0;
+      height: 36px;
+      width: 36px;
       border-radius: $radius-sm;
-    }
-  }
-
-  .right {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    min-width: 0;
-    flex: 1 1 auto;
-    justify-content: flex-end;
-
-    @media (max-width: $breakpoint-mobile) {
-      flex: 0 1 auto;
-      gap: $spacing-sm;
-    }
-  }
-
-  .sidebar-toggle-header {
-    padding: 0;
-    background: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
-    border-radius: $radius-md;
-    color: var(--text-secondary);
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all $transition-fast;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    line-height: 1;
-
-    &:hover {
-      background: var(--glass-bg-solid);
-      color: var(--primary-color);
-      border-color: var(--primary-color);
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-      display: none;
+      @include dual-stroke;
     }
   }
 
   .brand-header {
-    display: flex;
-    align-items: center;
-    gap: $spacing-xs;
     font-weight: 800;
-    font-size: 18px;
+    font-size: 20px;
+    letter-spacing: -0.04em;
     color: var(--text-primary);
-    margin-right: $spacing-md;
+  }
+
+  .sidebar-toggle-header {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-sm;
+    @include flex-center;
+    background: var(--bg-tertiary);
+    @include dual-stroke;
+    @include tactile-feedback;
     cursor: pointer;
-    overflow: hidden;
-    white-space: nowrap;
-    flex-shrink: 0;
-
-    .brand-full {
-      display: inline-block;
-      max-width: 320px;
-      opacity: 1;
-      transform: translateX(0);
-      transition:
-        max-width 0.4s ease,
-        opacity 0.4s ease,
-        transform 0.4s ease;
-    }
-
-    .brand-abbr {
-      display: inline-block;
-      transform: translateX(12px);
-      opacity: 0;
-      pointer-events: none;
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
-    }
-
-    &.collapsed {
-      .brand-full {
-        max-width: 0;
-        opacity: 0;
-        transform: translateX(-12px);
-      }
-
-      .brand-abbr {
-        transform: translateX(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
-    }
-
-    .brand-full,
-    .brand-abbr {
-      font-weight: 800;
-    }
+    color: var(--text-secondary);
 
     &:hover {
-      .brand-full,
-      .brand-abbr {
-        background: var(--gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-    }
-
-    // 移动端：禁用动画，只显示缩写
-    @media (max-width: $breakpoint-mobile) {
-      cursor: default;
-      flex-shrink: 1;
-      min-width: 0;
-      margin-right: 0;
-
-      .brand-full,
-      .brand-abbr {
-        transition: none;
-      }
-
-      .brand-full {
-        display: none;
-      }
-
-      .brand-abbr {
-        transform: translateX(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      &:hover {
-        color: var(--text-primary);
-      }
-    }
-  }
-
-  .mobile-menu-btn {
-    display: none;
-    flex-shrink: 0;
-
-    @media (max-width: $breakpoint-mobile) {
-      display: inline-flex;
-    }
-  }
-
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: $spacing-xs;
-    flex-shrink: 0;
-
-    svg {
-      display: block;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-      gap: 2px;
-    }
-  }
-
-  .connection {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-    color: var(--text-secondary);
-    min-width: 0;
-    flex-shrink: 1;
-    overflow: hidden;
-
-    .status-badge {
-      flex-shrink: 0;
-      white-space: nowrap;
-      margin-bottom: 0;
-    }
-
-    .base {
-      font-weight: 600;
       color: var(--text-primary);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      min-width: 80px;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-      display: none;
+      background: var(--bg-primary);
     }
   }
 }
@@ -258,345 +78,140 @@
   min-height: 0;
   height: calc(100vh - var(--header-height));
   overflow: hidden;
-  position: relative;
-
-  @supports (height: 100dvh) {
-    height: calc(100dvh - var(--header-height));
-  }
+  background-color: var(--bg-primary);
 
   @media (max-width: $breakpoint-mobile) {
     height: auto;
-    min-height: calc(100vh - var(--header-height));
-    overflow: visible;
-    padding-top: var(--header-height);
-
-    @supports (min-height: 100dvh) {
-      min-height: calc(100dvh - var(--header-height));
-    }
+    flex-direction: column;
   }
 }
 
+// 侧边栏: 玻璃感容器，内部项目高对比
 .sidebar {
-  width: 240px;
-  background: var(--glass-bg-solid);
-  backdrop-filter: blur($glass-blur) saturate($glass-saturation);
-  -webkit-backdrop-filter: blur($glass-blur) saturate($glass-saturation);
-  border-right: 1px solid var(--glass-border);
-  padding: $spacing-md;
+  width: 260px;
+  background: transparent;
+  padding: $p-lg;
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
-  transition:
-    width $transition-normal,
-    transform $transition-normal;
+  gap: $p-lg;
+  transition: width $transition-tactile;
   overflow-y: auto;
   flex-shrink: 0;
-  height: 100%;
 
   &.collapsed {
-    width: 60px;
-    padding: $spacing-md $spacing-sm;
-
-    .nav-item {
-      justify-content: center;
-      padding: 10px;
-    }
+    width: 80px;
+    .nav-label { display: none; }
+    .nav-item { justify-content: center; padding: $p-sm; }
   }
 
   .nav-section {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
-    flex: 1;
+    gap: 4px;
   }
 
   .nav-item {
-    padding: 10px 14px;
+    padding: 12px 16px;
     border-radius: $radius-md;
-    color: var(--text-primary);
-    font-weight: 600;
+    color: var(--text-secondary);
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
-    cursor: pointer;
-    transition: all $transition-fast;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 3px;
-      height: 0;
-      background: var(--gradient-primary);
-      border-radius: 0 $radius-sm $radius-sm 0;
-      transition: height $transition-fast;
-    }
+    gap: $p-sm;
+    @include tactile-feedback(0.96);
+    transition: background 0.2s, color 0.2s;
 
     .nav-icon {
-      width: 20px;
-      height: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      opacity: 0.8;
-      transition: all $transition-fast;
-
-      svg {
-        width: 18px;
-        height: 18px;
-        display: block;
-      }
-    }
-
-    .nav-label {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      opacity: 0.6;
+      transition: opacity 0.2s;
     }
 
     &:hover {
-      background: var(--glass-bg);
-
-      .nav-icon {
-        opacity: 1;
-        color: var(--primary-color);
-      }
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      .nav-icon { opacity: 1; }
     }
 
     &.active {
-      background: rgba(6, 182, 212, 0.1);
-      color: var(--primary-color);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-
-      &::before {
-        height: 60%;
-      }
-
-      .nav-icon {
-        opacity: 1;
-        color: var(--primary-color);
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    position: fixed;
-    z-index: $z-dropdown;
-    left: 0;
-    top: var(--header-height);
-    bottom: 0;
-    transform: translateX(-100%);
-    box-shadow: $shadow-lg;
-
-    &.open {
-      transform: translateX(0);
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      @include dual-stroke;
+      box-shadow: $shadow-sm;
+      .nav-icon { opacity: 1; }
     }
   }
 }
 
+// 内容区域: 强制大间距与呼吸感
 .content {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
   overflow-y: auto;
-  scrollbar-gutter: stable;
-  height: 100%;
+  padding: $p-xl; // 强制 p-8
+  background: var(--bg-secondary); // #F9F9FB
+  border-top-left-radius: $radius-xl; // 大曲率
+  @include dual-stroke;
+  margin-top: $p-sm;
+  margin-right: $p-sm;
+  margin-bottom: $p-sm;
 
-  &.content-logs {
-    overflow: hidden;
-
-    @media (max-width: $breakpoint-mobile) {
-      overflow: visible;
-      overflow-y: auto;
-      height: auto;
-    }
+  @include mobile {
+    margin: 0;
+    border-radius: 0;
+    padding: $p-lg;
   }
 }
 
 .main-content {
-  flex: 1 0 auto;
-  padding: $spacing-lg;
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-lg;
-  overflow-x: hidden;
-
-  &.main-content-logs {
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow: hidden;
-
-    @media (max-width: $breakpoint-mobile) {
-      flex: 0 0 auto;
-      min-height: auto;
-      overflow: visible;
-    }
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    padding: $spacing-md;
-  }
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
+// 页脚: 工业设计风格细节
 .footer {
-  padding: $spacing-md $spacing-lg;
-  border-top: 1px solid var(--glass-border);
-  background: var(--glass-bg);
-  backdrop-filter: blur($glass-blur);
-  -webkit-backdrop-filter: blur($glass-blur);
+  margin-top: auto;
+  padding: $p-xl 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--text-secondary);
-  font-size: 13px;
-  flex-wrap: wrap;
-  gap: $spacing-sm;
-
-  .footer-version {
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -webkit-touch-callout: none;
+  color: var(--text-tertiary);
+  @include industrial-label;
+  
+  span {
+    font-size: 10px;
+    letter-spacing: 0.15em;
   }
 }
 
+// 登录页面重构
 .login-page {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-  padding: $spacing-lg;
-  position: relative;
-  overflow: hidden;
-
-  // Add decorative gradient orbs
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  &::before {
-    width: 400px;
-    height: 400px;
-    background: rgba(6, 182, 212, 0.3);
-    top: -100px;
-    right: -100px;
-  }
-
-  &::after {
-    width: 300px;
-    height: 300px;
-    background: rgba(139, 92, 246, 0.2);
-    bottom: -50px;
-    left: -50px;
-  }
+  @include flex-center;
+  background-color: var(--bg-primary);
+  padding: $p-lg;
 
   .login-card {
     width: 100%;
     max-width: 480px;
-    @include glass-solid;
-    border-radius: $radius-lg;
-    padding: $spacing-xl;
+    background: var(--bg-tertiary);
+    border-radius: $radius-2xl; // 50px 圆角
+    @include dual-stroke;
+    box-shadow: $shadow-float;
+    padding: $p-2xl;
     display: flex;
     flex-direction: column;
-    gap: $spacing-lg;
-    position: relative;
-    z-index: 1;
-    border: 1px solid var(--glass-border);
+    gap: $p-xl;
   }
 
   .login-header {
     text-align: center;
-
     .title {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 800;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      letter-spacing: -0.05em;
     }
-
-    .subtitle {
-      color: var(--text-secondary);
-      margin-top: $spacing-xs;
-    }
-  }
-
-  .login-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: $spacing-sm;
-    flex-wrap: wrap;
-  }
-
-  .login-language-btn {
-    white-space: nowrap;
-  }
-
-  .connection-box {
-    background: var(--bg-secondary);
-    border: 1px dashed var(--border-color);
-    border-radius: $radius-md;
-    padding: $spacing-md;
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-xs;
-
-    .label {
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    .value {
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .item-actions {
-      display: flex;
-      gap: $spacing-md;
-    }
-  }
-
-  .toggle-advanced {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: $spacing-xs;
-    color: var(--text-secondary);
-    cursor: pointer;
-  }
-
-  .error-box {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    border-radius: $radius-md;
-    padding: $spacing-sm $spacing-md;
-    color: $error-color;
-  }
-}
-
-.grid {
-  display: grid;
-  gap: $spacing-lg;
-}
-
-@media (min-width: $breakpoint-tablet) {
-  .grid.cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

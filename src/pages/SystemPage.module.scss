@@ -4,48 +4,34 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 $spacing-xl 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 $p-xl 0;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xl;
+  gap: $p-xl;
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $p-md;
 }
 
 .sectionTitle {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
-  margin: 0 0 $spacing-md 0;
-  display: flex;
-  align-items: center;
-  gap: $spacing-sm;
-
-  &::before {
-    content: '';
-    width: 4px;
-    height: 18px;
-    background: var(--gradient-primary);
-    border-radius: $radius-full;
-  }
+  margin: 0 0 $p-md 0;
 }
 
 .sectionDescription {
   font-size: 14px;
   color: var(--text-secondary);
-  margin: 0 0 $spacing-md 0;
+  margin: 0 0 $p-md 0;
 }
 
 .clearLoginActions {
@@ -56,12 +42,12 @@
 
 .infoGrid {
   display: grid;
-  gap: $spacing-sm;
+  gap: $p-sm;
 
   .infoRow {
     display: flex;
     justify-content: space-between;
-    padding: $spacing-sm $spacing-md;
+    padding: $p-sm $p-md;
     background-color: var(--bg-secondary);
     border-radius: $radius-md;
 
@@ -80,13 +66,13 @@
 .modelsList {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $p-sm;
   max-height: 400px;
   overflow-y: auto;
 }
 
 .modelItem {
-  padding: $spacing-sm $spacing-md;
+  padding: $p-sm $p-md;
   background-color: var(--bg-secondary);
   border-radius: $radius-md;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
@@ -101,20 +87,18 @@
   display: flex;
   flex-wrap: wrap;
   flex: 0 0 100%;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .modelTag {
   display: inline-flex;
   align-items: center;
-  gap: $spacing-xs;
+  gap: $p-xs;
   padding: 4px 10px;
   border-radius: $radius-full;
   border: 1px solid var(--border-color);
   background-color: var(--bg-secondary);
-  font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 .modelName {
@@ -130,23 +114,23 @@
 .versionCheck {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $p-md;
 }
 
 .versionInfo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: $spacing-md;
+  gap: $p-md;
 
   .versionItem {
-    padding: $spacing-md;
+    padding: $p-md;
     background-color: var(--bg-secondary);
     border-radius: $radius-md;
 
     .label {
       font-size: 12px;
       color: var(--text-secondary);
-      margin-bottom: $spacing-xs;
+      margin-bottom: $p-xs;
     }
 
     .version {
@@ -161,14 +145,14 @@
 .quickLinks {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: $spacing-md;
+  gap: $p-md;
 }
 
 .linkCard {
   display: flex;
   align-items: center;
-  gap: $spacing-md;
-  padding: $spacing-md $spacing-lg;
+  gap: $p-md;
+  padding: $p-md $p-lg;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: $radius-lg;
@@ -216,7 +200,7 @@
 .linkTitle {
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
+  gap: $p-xs;
   font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);

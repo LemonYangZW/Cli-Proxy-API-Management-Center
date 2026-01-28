@@ -6,22 +6,18 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 $spacing-xl 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 $p-xl 0;
 }
 
 .grid {
   display: grid;
-  gap: $spacing-lg;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: $p-lg;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 
   @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-md;
   }
 }
 
@@ -29,7 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $spacing-md;
+  gap: $p-md;
 }
 
 .settingInfo {
@@ -39,7 +35,7 @@
     font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
-    margin: 0 0 $spacing-xs 0;
+    margin: 0 0 $p-xs 0;
   }
 
   p {
@@ -83,7 +79,7 @@
   right: 0;
   bottom: 0;
   background-color: var(--border-color);
-  transition: $transition-fast;
+  transition: $transition-tactile;
   border-radius: $radius-full;
 
   &:before {
@@ -94,7 +90,7 @@
     left: 4px;
     bottom: 4px;
     background-color: white;
-    transition: $transition-fast;
+    transition: $transition-tactile;
     border-radius: $radius-full;
   }
 }
@@ -102,24 +98,22 @@
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $p-md;
 }
 
 .buttonGroup {
   display: flex;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .retryRow {
   display: flex;
   align-items: flex-end;
-  gap: $spacing-md;
+  gap: $p-md;
   flex-wrap: wrap;
 
   :global(.form-group) {
     margin-bottom: 0;
-    flex: 1;
-    min-width: 140px;
   }
 
   @include mobile {
@@ -132,7 +126,7 @@
   align-items: flex-start;
 
   .retryButton {
-    margin-top: calc(1.5em + #{$spacing-xs});
+    margin-top: calc(1.5em + #{$p-xs});
   }
 
   @include mobile {
@@ -166,27 +160,5 @@
 .retryButton {
   @include mobile {
     width: 100%;
-  }
-}
-
-// Settings cards get a subtle left border accent
-:global(.card) {
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: $spacing-md;
-    bottom: $spacing-md;
-    width: 3px;
-    background: var(--gradient-primary);
-    border-radius: 0 $radius-sm $radius-sm 0;
-    opacity: 0;
-    transition: opacity $transition-fast;
-  }
-
-  &:hover::before {
-    opacity: 1;
   }
 }

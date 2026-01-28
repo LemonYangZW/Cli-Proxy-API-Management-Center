@@ -6,25 +6,22 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 $spacing-xl 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 $p-xl 0;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $p-lg;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: $spacing-md;
+  gap: $p-md;
 
   @include mobile {
     flex-direction: column;
@@ -34,36 +31,26 @@
 
 .actions {
   display: flex;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .emptyState {
   text-align: center;
-  padding: $spacing-2xl;
-  background: var(--glass-bg);
-  backdrop-filter: blur($glass-blur);
-  -webkit-backdrop-filter: blur($glass-blur);
-  border: 1px dashed var(--border-color);
-  border-radius: $radius-lg;
+  padding: $p-2xl;
+  color: var(--text-secondary);
 
   i {
     font-size: 48px;
-    margin-bottom: $spacing-md;
+    margin-bottom: $p-md;
     opacity: 0.5;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 
   h3 {
-    margin: 0 0 $spacing-sm 0;
+    margin: 0 0 $p-sm 0;
     color: var(--text-primary);
-    font-weight: 700;
   }
 
   p {
     margin: 0;
-    color: var(--text-secondary);
   }
 }

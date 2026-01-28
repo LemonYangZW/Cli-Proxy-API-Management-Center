@@ -3,30 +3,30 @@
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
-  padding: $spacing-md;
+  padding: $p-md;
 }
 
 .header {
   display: flex;
   justify-content: flex-end;
-  padding: $spacing-md 0;
+  padding: $p-md 0;
 }
 
 .controls {
   display: flex;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .iconButton {
   @include button-reset;
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
-  padding: $spacing-sm $spacing-md;
+  gap: $p-xs;
+  padding: $p-sm $p-md;
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   border-radius: $radius-md;
-  transition: background-color $transition-fast;
+  transition: background-color $transition-tactile;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -63,7 +63,7 @@
   justify-content: center;
   font-size: 40px;
   color: var(--primary-color);
-  margin-bottom: $spacing-lg;
+  margin-bottom: $p-lg;
   box-shadow: var(--shadow-lg);
 }
 
@@ -71,33 +71,33 @@
   font-size: 28px;
   font-weight: 700;
   color: white;
-  margin: 0 0 $spacing-sm 0;
+  margin: 0 0 $p-sm 0;
   text-align: center;
 }
 
 .subtitle {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 $spacing-2xl 0;
+  margin: 0 0 $p-2xl 0;
   text-align: center;
 }
 
 .form {
   width: 100%;
   background-color: var(--bg-primary);
-  padding: $spacing-2xl;
+  padding: $p-2xl;
   border-radius: $radius-lg;
   box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $p-lg;
 }
 
 .detectedInfo {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
-  padding: $spacing-md;
+  gap: $p-sm;
+  padding: $p-md;
   background-color: rgba(59, 130, 246, 0.1);
   border-radius: $radius-md;
   font-size: 13px;
@@ -113,7 +113,7 @@
 }
 
 .footer {
-  margin-top: $spacing-xl;
+  margin-top: $p-xl;
   text-align: center;
 }
 

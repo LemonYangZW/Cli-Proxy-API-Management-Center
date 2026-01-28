@@ -4,13 +4,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $p-lg;
 }
 
 .pageHeader {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .pageTitle {
@@ -31,14 +31,14 @@
 
 .headerActions {
   display: flex;
-  gap: $spacing-sm;
+  gap: $p-sm;
   flex-wrap: wrap;
 }
 
 .titleWrapper {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $p-sm;
   line-height: 24px;
 }
 
@@ -58,27 +58,27 @@
 }
 
 .errorBox {
-  padding: $spacing-md;
+  padding: $p-md;
   background-color: rgba(239, 68, 68, 0.1);
   border: 1px solid var(--danger-color);
   border-radius: $radius-md;
   color: var(--danger-color);
   font-size: 14px;
-  margin-bottom: $spacing-md;
+  margin-bottom: $p-md;
 }
 
-// 筛选区域
+// 筛选区�?
 .filterSection {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
-  margin-bottom: $spacing-lg;
+  gap: $p-md;
+  margin-bottom: $p-lg;
 }
 
 .filterTags {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-xs;
+  gap: $p-xs;
 }
 
 .filterTag {
@@ -88,7 +88,7 @@
   font-weight: 500;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all $transition-fast;
+  transition: all $transition-tactile;
 
   &:hover {
     transform: translateY(-1px);
@@ -102,11 +102,11 @@
 
 .filterControls {
   display: flex;
-  gap: $spacing-md;
+  gap: $p-md;
   flex-wrap: wrap;
   align-items: flex-end;
 
-  // 修复 Input 组件在 filterItem 中的嵌套样式
+  // 修复 Input 组件�?filterItem 中的嵌套样式
   :global(.form-group) {
     margin: 0;
   }
@@ -129,14 +129,14 @@
     white-space: nowrap;
   }
 
-  // 搜索输入框需要更宽以显示完整的 placeholder
+  // 搜索输入框需要更宽以显示完整�?placeholder
   &:first-child {
     min-width: 220px;
     flex: 1;
     max-width: 320px;
   }
 
-  // 其他 filterItem 保持较小的宽度
+  // 其他 filterItem 保持较小的宽�?
   &:not(:first-child) {
     min-width: auto;
   }
@@ -162,7 +162,7 @@
 // 卡片网格
 .fileGrid {
   display: grid;
-  gap: $spacing-md;
+  gap: $p-md;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
   @include tablet {
@@ -176,7 +176,7 @@
 
 .antigravityGrid {
   display: grid;
-  gap: $spacing-md;
+  gap: $p-md;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
   @include tablet {
@@ -190,7 +190,7 @@
 
 .codexGrid {
   display: grid;
-  gap: $spacing-md;
+  gap: $p-md;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
   @include tablet {
@@ -204,7 +204,7 @@
 
 .geminiCliGrid {
   display: grid;
-  gap: $spacing-md;
+  gap: $p-md;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
   @include tablet {
@@ -218,10 +218,10 @@
 
 .antigravityControls {
   display: flex;
-  gap: $spacing-md;
+  gap: $p-md;
   flex-wrap: wrap;
   align-items: flex-end;
-  margin-bottom: $spacing-md;
+  margin-bottom: $p-md;
 }
 
 .antigravityControl {
@@ -239,10 +239,10 @@
 
 .codexControls {
   display: flex;
-  gap: $spacing-md;
+  gap: $p-md;
   flex-wrap: wrap;
   align-items: flex-end;
-  margin-bottom: $spacing-md;
+  margin-bottom: $p-md;
 }
 
 .codexControl {
@@ -260,10 +260,10 @@
 
 .geminiCliControls {
   display: flex;
-  gap: $spacing-md;
+  gap: $p-md;
   flex-wrap: wrap;
   align-items: flex-end;
-  margin-bottom: $spacing-md;
+  margin-bottom: $p-md;
 }
 
 .geminiCliControl {
@@ -294,23 +294,23 @@
 .quotaSection {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
-  padding-top: $spacing-sm;
-  margin-top: $spacing-xs;
+  gap: $p-sm;
+  padding-top: $p-sm;
+  margin-top: $p-xs;
   border-top: 1px dashed var(--border-color);
 }
 
 .quotaRow {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $p-xs;
 }
 
 .quotaRowHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $spacing-sm;
+  gap: $p-sm;
   min-width: 0;
 
   @include mobile {
@@ -389,7 +389,7 @@
   font-size: 12px;
   color: var(--text-tertiary);
   text-align: center;
-  padding: $spacing-sm 0;
+  padding: $p-sm 0;
 }
 
 .quotaError {
@@ -398,7 +398,7 @@
   background-color: rgba(239, 68, 68, 0.08);
   border: 1px solid var(--danger-color);
   border-radius: $radius-sm;
-  padding: $spacing-xs $spacing-sm;
+  padding: $p-xs $p-sm;
 }
 
 .quotaWarning {
@@ -407,7 +407,7 @@
   background-color: rgba(245, 158, 11, 0.12);
   border: 1px solid var(--warning-color, #f59e0b);
   border-radius: $radius-sm;
-  padding: $spacing-xs $spacing-sm;
+  padding: $p-xs $p-sm;
 }
 
 .codexPlan {
@@ -433,14 +433,14 @@
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: $radius-lg;
-  padding: $spacing-md;
+  padding: $p-md;
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $p-sm;
   transition:
-    transform $transition-fast,
-    box-shadow $transition-fast,
-    border-color $transition-fast;
+    transform $transition-tactile,
+    box-shadow $transition-tactile,
+    border-color $transition-tactile;
 
   &:hover {
     transform: translateY(-2px);
@@ -462,7 +462,7 @@
 .cardHeader {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $p-sm;
   min-height: 28px;
 }
 
@@ -489,7 +489,7 @@
   gap: 2px;
   font-size: 12px;
   color: var(--text-secondary);
-  padding: $spacing-xs 0;
+  padding: $p-xs 0;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -497,9 +497,9 @@
 .cardStats {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
-  padding-top: $spacing-xs;
-  margin-top: $spacing-xs;
+  gap: $p-sm;
+  padding-top: $p-xs;
+  margin-top: $p-xs;
 }
 
 .statPill {
@@ -606,7 +606,7 @@
 .prefixProxyEditor {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $p-md;
   max-height: 60vh;
   overflow: auto;
 }
@@ -615,14 +615,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-sm;
+  gap: $p-sm;
   font-size: 12px;
   color: var(--text-secondary);
-  padding: $spacing-sm 0;
+  padding: $p-sm 0;
 }
 
 .prefixProxyError {
-  padding: $spacing-sm $spacing-md;
+  padding: $p-sm $p-md;
   border-radius: $radius-md;
   border: 1px solid var(--danger-color);
   background-color: rgba(239, 68, 68, 0.1);
@@ -644,7 +644,7 @@
 
 .prefixProxyTextarea {
   width: 100%;
-  padding: $spacing-sm $spacing-md;
+  padding: $p-sm $p-md;
   border: 1px solid var(--border-color);
   border-radius: $radius-md;
   background-color: var(--bg-secondary);
@@ -664,7 +664,7 @@
 .prefixProxyFields {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-sm;
+  gap: $p-sm;
 
   :global(.form-group) {
     margin: 0;
@@ -673,18 +673,18 @@
 
 .cardActions {
   display: flex;
-  gap: $spacing-xs;
+  gap: $p-xs;
   justify-content: flex-end;
   align-items: center;
   margin-top: auto;
-  padding-top: $spacing-sm;
+  padding-top: $p-sm;
 }
 
 .statusToggle {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  margin-left: $spacing-sm;
+  margin-left: $p-sm;
 }
 
 .iconButton:global(.btn.btn-sm) {
@@ -717,16 +717,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: $spacing-md;
-  margin-top: $spacing-lg;
-  padding-top: $spacing-md;
+  gap: $p-md;
+  margin-top: $p-lg;
+  padding-top: $p-md;
   border-top: 1px solid var(--border-color);
 }
 
 .pageInfo {
   font-size: 13px;
   color: var(--text-secondary);
-  padding: $spacing-xs $spacing-md;
+  padding: $p-xs $p-md;
   background-color: var(--bg-secondary);
   border-radius: $radius-md;
 }
@@ -735,18 +735,18 @@
 .excludedList {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .excludedItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing-md;
+  padding: $p-md;
   background-color: var(--bg-secondary);
   border-radius: $radius-md;
   border: 1px solid var(--border-color);
-  gap: $spacing-md;
+  gap: $p-md;
 
   @include mobile {
     flex-direction: column;
@@ -775,7 +775,7 @@
 
 .excludedActions {
   display: flex;
-  gap: $spacing-xs;
+  gap: $p-xs;
   flex-shrink: 0;
 }
 
@@ -783,7 +783,7 @@
 .providerField {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $p-xs;
 
   :global(.form-group) {
     margin-bottom: 0;
@@ -793,7 +793,7 @@
 .providerTagList {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-xs;
+  gap: $p-xs;
 }
 
 .providerTag {
@@ -807,7 +807,7 @@
   color: var(--text-secondary);
   font-size: 12px;
   cursor: pointer;
-  transition: all $transition-fast;
+  transition: all $transition-tactile;
 
   &:hover {
     border-color: var(--primary-color);
@@ -838,7 +838,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr auto auto;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $p-sm;
 
   @include mobile {
     grid-template-columns: 1fr;
@@ -869,7 +869,7 @@
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: $radius-md;
-  padding: $spacing-md;
+  padding: $p-md;
   font-family: monospace;
   font-size: 12px;
   white-space: pre-wrap;
@@ -882,8 +882,8 @@
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
-  margin-top: $spacing-md;
+  gap: $p-xs;
+  margin-top: $p-md;
 
   label {
     font-size: 14px;
@@ -894,7 +894,7 @@
 
 .textarea {
   width: 100%;
-  padding: $spacing-sm $spacing-md;
+  padding: $p-sm $p-md;
   border: 1px solid var(--border-color);
   border-radius: $radius-md;
   background-color: var(--bg-primary);
@@ -918,27 +918,27 @@
   color: var(--text-tertiary);
   font-style: italic;
   text-align: center;
-  padding: $spacing-lg;
+  padding: $p-lg;
 }
 
 // 模型列表弹窗
 .modelsList {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $p-sm;
 }
 
 .modelItem {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
-  padding: $spacing-sm $spacing-md;
+  gap: $p-sm;
+  padding: $p-sm $p-md;
   background-color: var(--bg-secondary);
   border-radius: $radius-md;
   border: 1px solid var(--border-color);
   flex-wrap: wrap;
   cursor: pointer;
-  transition: all $transition-fast;
+  transition: all $transition-tactile;
 
   &:hover {
     background-color: var(--bg-hover);

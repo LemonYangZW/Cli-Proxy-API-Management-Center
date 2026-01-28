@@ -15,18 +15,15 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 $spacing-xl 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 $p-lg 0;
 }
 
 .tabBar {
   display: flex;
-  gap: $spacing-xs;
-  margin-bottom: $spacing-lg;
+  gap: $p-xs;
+  margin-bottom: $p-lg;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -57,12 +54,12 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $p-lg;
   flex: 1;
   min-height: 0;
 
   @include mobile {
-    gap: $spacing-md;
+    gap: $p-md;
     min-height: auto;
   }
 }
@@ -84,7 +81,7 @@
 .toolbar {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $p-sm;
   flex-wrap: wrap;
   margin-left: auto;
 
@@ -98,17 +95,17 @@
 .filters {
   display: flex;
   align-items: center;
-  gap: $spacing-md;
+  gap: $p-md;
   flex-wrap: wrap;
-  margin-bottom: $spacing-md;
+  margin-bottom: $p-md;
 
   :global(.form-group) {
     margin: 0;
   }
 
   @include mobile {
-    gap: $spacing-sm;
-    margin-bottom: $spacing-sm;
+    gap: $p-sm;
+    margin-bottom: $p-sm;
   }
 }
 
@@ -220,7 +217,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $spacing-sm;
+  gap: $p-sm;
   padding: 8px 12px;
   border-bottom: 1px solid var(--border-color);
   background: var(--bg-primary);
@@ -231,7 +228,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: $spacing-xs;
+    gap: $p-xs;
 
     > span {
       width: 100%;
@@ -247,12 +244,12 @@
 .loadMoreStats {
   display: flex;
   align-items: center;
-  gap: $spacing-md;
+  gap: $p-md;
 
   @include mobile {
     width: 100%;
     flex-wrap: wrap;
-    gap: $spacing-sm;
+    gap: $p-sm;
 
     > span {
       white-space: nowrap;
@@ -268,7 +265,7 @@
 .logRow {
   display: grid;
   grid-template-columns: 170px 1fr;
-  gap: $spacing-md;
+  gap: $p-md;
   padding: 10px 12px;
   border-bottom: 1px solid var(--border-color);
   border-left: 3px solid transparent;
@@ -286,14 +283,14 @@
 
   @include tablet {
     grid-template-columns: 140px 1fr;
-    gap: $spacing-sm;
+    gap: $p-sm;
     padding: 8px 10px;
     font-size: 12px;
   }
 
   @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-xs;
+    gap: $p-xs;
     padding: 8px 10px;
     font-size: 11.5px;
   }
@@ -362,9 +359,8 @@
 }
 
 .requestIdBadge {
-  font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
   font-size: 11px;
   color: #0891b2;
   background: rgba(8, 145, 178, 0.1);
@@ -454,11 +450,11 @@
 @media (max-height: 820px) {
   .pageTitle {
     font-size: 24px;
-    margin-bottom: $spacing-md;
+    margin-bottom: $p-md;
   }
 
   .tabBar {
-    margin-bottom: $spacing-md;
+    margin-bottom: $p-md;
   }
 
   .tabItem {
@@ -466,11 +462,11 @@
   }
 
   .content {
-    gap: $spacing-md;
+    gap: $p-md;
   }
 
   .logCard {
-    padding: $spacing-md;
+    padding: $p-md;
   }
 
   .logPanel {
@@ -491,11 +487,11 @@
 @media (max-height: 600px) {
   .pageTitle {
     font-size: 20px;
-    margin-bottom: $spacing-sm;
+    margin-bottom: $p-sm;
   }
 
   .tabBar {
-    margin-bottom: $spacing-sm;
+    margin-bottom: $p-sm;
   }
 
   .tabItem {
@@ -504,16 +500,16 @@
   }
 
   .content {
-    gap: $spacing-sm;
+    gap: $p-sm;
   }
 
   .filters {
-    margin-bottom: $spacing-sm;
-    gap: $spacing-sm;
+    margin-bottom: $p-sm;
+    gap: $p-sm;
   }
 
   .logCard {
-    padding: $spacing-sm;
+    padding: $p-sm;
   }
 
   .logPanel {
@@ -525,7 +521,7 @@
     padding: 6px 8px;
     font-size: 11px;
     grid-template-columns: 130px 1fr;
-    gap: $spacing-xs;
+    gap: $p-xs;
   }
 
   .loadMoreBanner {

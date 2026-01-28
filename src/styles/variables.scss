@@ -1,98 +1,70 @@
 /**
- * SCSS 变量定义
+ * SCSS 变量定义 - Zen-iOS Hybrid 设计语言
  */
 
-// Cyan/Teal Color Palette (replace blue)
-$primary-color: #06b6d4; // cyan-500
-$primary-light: #22d3ee; // cyan-400
-$primary-dark: #0891b2; // cyan-600
-$primary-darker: #0e7490; // cyan-700
-$info-color: #06b6d4; // cyan-500
+// 1. 核心视觉基调 (Base Colors)
+$primary-color: #1c1c1e; // 深空黑
+$accent-color: #007aff;  // iOS 蓝色作为强调色
+$success-color: #34c759;
+$warning-color: #ff9500;
+$error-color: #ff3b30;
 
-// Cyan scale
-$cyan-50: #ecfeff;
-$cyan-100: #cffafe;
-$cyan-200: #a5f3fc;
-$cyan-300: #67e8f9;
-$cyan-400: #22d3ee;
-$cyan-500: #06b6d4;
-$cyan-600: #0891b2;
-$cyan-700: #0e7490;
-$cyan-800: #155e75;
-$cyan-900: #164e63;
+// 2. iOS 灰阶 (Gray Scales) - 追求极致的冷灰调
+$gray-50: #f9f9fb;   // 最浅背景层
+$gray-100: #f2f2f7;  // iOS 系统级灰
+$gray-200: #e5e5ea;
+$gray-300: #d1d1d6;
+$gray-400: #c7c7cc;
+$gray-500: #8e8e93;
+$gray-600: #636366;
+$gray-700: #48484a;
+$gray-800: #2c2c2e;
+$gray-900: #1c1c1e;
 
-$success-color: #10b981;
-$warning-color: #f59e0b;
-$error-color: #ef4444;
-
-// Glassmorphism settings
-$glass-blur: 12px;
-$glass-blur-heavy: 20px;
-$glass-saturation: 180%;
-
-// Enhanced shadows for depth
-$shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.12);
-$shadow-glass-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-$shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.3);
-
-// Glassmorphism border
-$glass-border-light: 1px solid rgba(255, 255, 255, 0.18);
-$glass-border-dark: 1px solid rgba(255, 255, 255, 0.08);
-
-// Animation durations
-$animation-fast: 200ms;
-$animation-normal: 300ms;
-$animation-slow: 500ms;
-
-// 灰阶
-$gray-50: #f9fafb;
-$gray-100: #f3f4f6;
-$gray-200: #e5e7eb;
-$gray-300: #d1d5db;
-$gray-400: #9ca3af;
-$gray-500: #6b7280;
-$gray-600: #4b5563;
-$gray-700: #374151;
-$gray-800: #1f2937;
-$gray-900: #111827;
-
-// 间距
-$spacing-xs: 4px;
-$spacing-sm: 8px;
-$spacing-md: 16px;
-$spacing-lg: 24px;
-$spacing-xl: 32px;
-$spacing-2xl: 48px;
-
-// 圆角
-$radius-sm: 4px;
-$radius-md: 8px;
-$radius-lg: 12px;
+// 3. 圆角美学 (Curvature) - 遵循 iOS 连续曲率
+$radius-xs: 8px;
+$radius-sm: 12px;
+$radius-md: 20px;
+$radius-lg: 28px;      // 功能块
+$radius-xl: 40px;      // 容器层
+$radius-2xl: 50px;     // 大容器层
 $radius-full: 9999px;
 
-// 阴影
-$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+// 4. 阴影与物理质感 (Depth & Shadows)
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+$shadow-float: 0 24px 48px -12px rgba(0, 0, 0, 0.08); // 悬浮组件
+$shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);  // 凹陷组件
 
-// 过渡
-$transition-fast: 150ms ease;
-$transition-normal: 300ms ease;
-$transition-slow: 500ms ease;
+// 5. 模糊效果 (Blur/Frosted Glass)
+$blur-sm: blur(10px);
+$blur-md: blur(20px);
+$blur-lg: blur(40px);
+$blur-xl: blur(60px);
 
-// 断点
+// 6. 过渡 (Transitions/Tactile Feedback)
+$transition-tactile: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// 7. 间距 (Spacing - 强制呼吸感)
+$p-xs: 8px;
+$p-sm: 12px;
+$p-md: 16px;
+$p-lg: 24px;
+$p-xl: 32px;
+$p-2xl: 48px;
+
+// 8. 断点
 $breakpoint-mobile: 768px;
 $breakpoint-tablet: 1024px;
 $breakpoint-desktop: 1280px;
 
-// Z-index
+// 9. Z-index
 $z-dropdown: 1000;
 $z-modal: 2000;
 $z-notification: 3000;
 
-// 字体
-$font-family:
-  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-  'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
-$font-mono: 'Courier New', Courier, monospace;
+// 10. 字体 (Typography)
+$font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-mono: 'SF Mono', 'ui-monospace', monospace;

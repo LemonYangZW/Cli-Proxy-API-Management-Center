@@ -7,17 +7,7 @@
 .cardTitle {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
-  font-weight: 700;
-  color: var(--text-primary);
-
-  &::before {
-    content: '';
-    width: 4px;
-    height: 18px;
-    background: var(--gradient-primary);
-    border-radius: $radius-full;
-  }
+  gap: $p-sm;
 }
 
 .cardTitleIcon {
@@ -27,29 +17,26 @@
 
 .pageTitle {
   font-size: 28px;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 $spacing-xl 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 $p-xl 0;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xl;
+  gap: $p-xl;
 }
 
 .oauthSection {
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $p-lg;
 }
 
 .oauthGrid {
   display: grid;
-  gap: $spacing-lg;
+  gap: $p-lg;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 
   @include mobile {
@@ -60,11 +47,11 @@
 .oauthCard {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $p-md;
 }
 
 .oauthStatus {
-  padding: $spacing-md;
+  padding: $p-md;
   border-radius: $radius-md;
   font-size: 14px;
 
@@ -85,25 +72,25 @@
 }
 
 .callbackSection {
-  margin-top: $spacing-md;
+  margin-top: $p-md;
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $p-xs;
 }
 
 .callbackActions {
   display: flex;
-  gap: $spacing-md;
+  gap: $p-md;
 }
 
 .authUrlBox {
   background: var(--bg-secondary);
   border: 1px dashed var(--border-color);
   border-radius: $radius-md;
-  padding: $spacing-md;
+  padding: $p-md;
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $p-xs;
 }
 
 .authUrlLabel {
@@ -124,21 +111,21 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: $spacing-sm;
-  margin-top: $spacing-sm;
+  gap: $p-sm;
+  margin-top: $p-sm;
 }
 
 .geminiProjectField {
   :global(.form-group) {
-    margin-top: $spacing-sm;
-    gap: $spacing-sm;
+    margin-top: $p-sm;
+    gap: $p-sm;
   }
 }
 
 .filePicker {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $p-sm;
   flex-wrap: wrap;
 }
 
